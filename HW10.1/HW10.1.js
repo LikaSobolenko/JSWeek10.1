@@ -137,7 +137,6 @@ document.querySelector("section.articles").innerHTML = content;
 
 //отметка звёздочек
 let stars = document.querySelectorAll("span");
-console.log(stars);
 for (let i = 0; i < stars.length; i++)
   (function (i) {
     stars[i].addEventListener("click", function () {
@@ -153,5 +152,7 @@ for (let i = 0; i < stars.length; i++)
       for (sibling of siblings) {
         sibling.classList.add("checked");
       }
+      const heroNumber = Math.floor(i / 5);
+      localStorage.setItem(heroes[heroNumber].name, siblings.length + 1);
     });
   })(i);
